@@ -36,7 +36,7 @@ main = do
     let mimeMap = Map.fromList mime' `Map.union` defaultMimeTypes
     docroot' <- canonicalizePath docroot
     args <- getArgs
-    unless quiet $ printf "Serving directory %s on port %d with %s index files.\n" docroot' port (if noindex then "no" else show index)
+    unless quiet $ printf "Serving directory '%s' on port '%d' with %s index files.\n" docroot' port (if noindex then "no" else show index)
     let middle = gzip False
                . (if verbose then debug else id)
                . autohead
